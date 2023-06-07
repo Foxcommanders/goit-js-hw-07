@@ -4,15 +4,15 @@ const cardList = document.querySelector('.gallery');
 const galleryList = galleryItems
   .map(({ preview, original, description }) => {
     return `<li class="gallery__item">
-  <a class="gallery__link" href="${original}">
-    <img
-      class="gallery__image"
-      src="${preview}"
-      data-source="${original}"
-      alt="${description}"
-    />
-  </a>
-</li>`;
+      <a class="gallery__link" href="${original}">
+        <img
+          class="gallery__image"
+          src="${preview}"
+          data-source="${original}"
+        alt="${description}"
+        />
+      </a>
+    </li>`;
   })
   .join('');
 
@@ -26,13 +26,9 @@ function handleImgClick(e) {
   }
   const currentList = e.target.closest('.gallery__image');
   const sourceList = currentList.dataset.source;
-  const currentDescr = currentList.alt;
 
   const instance = basicLightbox.create(`
-    <img
-    src="${sourceList}"
-    alt="${currentDescr}"
-  />
+    <img src="${sourceList}" Width = "800" height = "600">
 `);
   instance.show();
   document.addEventListener('keydown', e =>
